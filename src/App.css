@@ -1,0 +1,212 @@
+/* Coral Empire - App Specific Styles */
+
+/* Color Variables */
+:root {
+  --coral-primary: #FCE4EC;
+  --coral-secondary: #B76E79;
+  --coral-accent: #D4AF37;
+  --coral-background: #FFFBFE;
+  --coral-foreground: #333333;
+}
+
+/* App Container */
+.App {
+  min-height: 100vh;
+  background: var(--coral-background);
+}
+
+/* Section Base Styles */
+section {
+  position: relative;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(183, 110, 121, 0.15);
+}
+
+/* Button Shine Effect */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.btn-shine:hover::after {
+  transform: translateX(100%);
+}
+
+/* Image Overlay on Hover */
+.image-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(183, 110, 121, 0.6) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-overlay:hover::after {
+  opacity: 1;
+}
+
+/* Gold Underline Animation */
+.gold-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--coral-accent);
+  transition: width 0.3s ease;
+}
+
+.gold-underline:hover::after {
+  width: 100%;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Stagger Animation */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, var(--coral-secondary) 0%, var(--coral-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section Divider */
+.section-divider {
+  width: 80px;
+  height: 3px;
+  background: var(--coral-accent);
+  margin: 0 auto;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(183, 110, 121, 0.1);
+}
+
+/* Responsive Image Container */
+.img-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.img-container img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.img-container:hover img {
+  transform: scale(1.08);
+}
+
+/* Focus States */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--coral-accent);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* RTL Adjustments */
+html[dir="rtl"] .gold-underline::after {
+  left: auto;
+  right: 0;
+}
+
+/* Mobile Menu Transition */
+.mobile-menu-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
