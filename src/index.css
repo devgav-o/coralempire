@@ -58,6 +58,10 @@
     font-family: 'Playfair Display', serif;
 }
 
+html[dir='rtl'] .font-heading {
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
